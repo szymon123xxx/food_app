@@ -1,13 +1,14 @@
-package com.example.foodapp
+package com.example.foodapp.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import timber.log.Timber
+import com.example.foodapp.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Timber.plant(Timber.DebugTree())
     }
 }

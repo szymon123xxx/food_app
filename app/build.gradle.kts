@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
     id("com.google.dagger.hilt.android")
 }
 
@@ -10,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.foodapp"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -18,7 +19,12 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     buildTypes {
+
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -40,11 +46,13 @@ dependencies {
 
     //Dependency versions
     val retrofitVersion = "2.9.0"
-    val hiltVersion = "2.47"
+    val hiltVersion = "2.48.1"
     val timberVersion = "5.0.1"
     val okhttpVersion = "4.11.0"
     val navigationVersion = "2.7.4"
     val coilVersion = "2.4.0"
+    val coroutines = "1.7.2"
+    val lifecycleVersion = "2.6.2"
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -67,7 +75,7 @@ dependencies {
 
     //Hilt
     implementation("com.google.dagger:hilt-android:$hiltVersion")
-    implementation("com.google.dagger:hilt-android-compiler:$hiltVersion")
+    kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
 
     //Timber
     implementation("com.jakewharton.timber:timber:$timberVersion")
@@ -75,5 +83,14 @@ dependencies {
     //Jetpack Navigation
     implementation("androidx.navigation:navigation-fragment-ktx:$navigationVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navigationVersion")
-    implementation("androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion")
+
+    //Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines")
+
+    //ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
+}
+
+kapt {
+    correctErrorTypes = true
 }

@@ -5,8 +5,9 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeScreen">
     <fragment
+        tools:layout="@layout/screen_home"
         android:id="@+id/homeScreen"
-        android:name="com.example.foodapp.presentation.HomeScreen"
+        android:name="com.example.foodapp.presentation.home_screen.HomeScreen"
         android:label="HomeScreen" >
         <action
             android:id="@+id/action_homeScreen_to_detailsScreen"

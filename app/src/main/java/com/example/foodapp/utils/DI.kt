@@ -1,6 +1,8 @@
 package com.example.foodapp.utils
 
 import com.example.foodapp.data.data_source.endpoints.FoodApi
+import com.example.foodapp.data.data_source.repository.FoodRepositoryImpl
+import com.example.foodapp.domain.repository.FoodRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -44,7 +46,7 @@ object DI {
 
     @Singleton
     @Provides
-    fun provideRepository(weatherApi: FoodApi): WeatherRepository {
-        return WeatherRepositoryImpl(weatherApi)
+    fun provideRepository(foodApi: FoodApi): FoodRepository {
+        return FoodRepositoryImpl(foodApi)
     }
 }
