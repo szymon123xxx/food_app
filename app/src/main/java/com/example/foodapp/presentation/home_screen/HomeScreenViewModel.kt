@@ -10,11 +10,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeScreenViewModel @Inject constructor(
-    private val getRandomRecipeUseCase: GetRandomRecipeUseCase
+//    private val getRandomRecipeUseCase: GetRandomRecipeUseCase
 ): ViewModel() {
 
-     fun getRandomRecipe() {
-        getRandomRecipeUseCase().onEach { result ->
-        }.launchIn(viewModelScope)
-    }
+//     fun getRandomRecipe() {
+//        getRandomRecipeUseCase().onEach { result ->
+//        }.launchIn(viewModelScope)
+//    }
 }

@@ -5,17 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import com.example.foodapp.databinding.ScreenHomeBinding
+import com.example.foodapp.presentation.adapters.HomeScreenAdapter
+import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @AndroidEntryPoint
 class HomeScreen: Fragment() {
 
     private var _binding: ScreenHomeBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: HomeScreenViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,8 +27,23 @@ class HomeScreen: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Timber.d("ELOELO START")
-        viewModel.getRandomRecipe()
+        setUpTabs()
+    }
+
+    private fun setUpTabs() {
+        val adapter = HomeScreenAdapter(parentFragmentManager, lifecycle)
+        binding.viewPager.adapter = adapter
+
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
+            when(position){
+                0 -> {
+                    tab.text = "Recipes"
+                }
+                1 -> {
+                    tab.text = "Favourite"
+                }
+            }
+        }.attach()
     }
 
     override fun onDestroy() {
