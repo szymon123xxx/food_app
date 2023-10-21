@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 data class RandomRecipeDataSource(
     @SerializedName("recipes")
-    val recipesDataSources: List<RecipeDataSource?>
+    val recipesDataSources: List<RecipeDataSource>?
 )
