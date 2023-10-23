@@ -1,6 +1,6 @@
 package com.example.foodapp.presentation.recipes_screen
 
-import com.example.foodapp.domain.model.random_recepie.RandomRecipe
+import com.example.foodapp.domain.model.random_recipe.RandomRecipe
 
 data class RecipesScreenState(
     val data: RandomRecipe? = null,

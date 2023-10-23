@@ -1,4 +1,4 @@
-package com.example.foodapp.domain.model.random_recepie
+package com.example.foodapp.domain.model.random_recipe
 
 import com.example.foodapp.data.data_source.api.random_recipe_data_source.RandomRecipeDataSource
 

@@ -31,7 +31,7 @@ class HomeScreen: Fragment() {
     }
 
     private fun setUpTabs() {
-        val adapter = HomeScreenAdapter(parentFragmentManager, lifecycle)
+        val adapter = HomeScreenAdapter(childFragmentManager, lifecycle)
         binding.viewPager.adapter = adapter
 
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->

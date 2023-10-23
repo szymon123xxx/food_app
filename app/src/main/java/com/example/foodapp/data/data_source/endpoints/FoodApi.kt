@@ -1,7 +1,9 @@
 package com.example.foodapp.data.data_source.endpoints
 
+import com.example.foodapp.data.data_source.api.id_recipe_data_source.IdRecipeDataSource
 import com.example.foodapp.data.data_source.api.random_recipe_data_source.RandomRecipeDataSource
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface FoodApi {
@@ -10,6 +12,13 @@ interface FoodApi {
     suspend fun randomRecipeEndPoint(
         @Query("apiKey") key: String,
         @Query("limitLicense") limitLicense: String,
-        @Query("number") number: String
+        @Query("number") number: String,
     ): RandomRecipeDataSource
+
+    @GET("recipes/{id}/information")
+    suspend fun getRecipeInformationEndPoint(
+        @Path("id") id: String,
+        @Query("apiKey") key: String,
+        @Query("includeNutrition") includeNutrition: String,
+    ): IdRecipeDataSource
 }

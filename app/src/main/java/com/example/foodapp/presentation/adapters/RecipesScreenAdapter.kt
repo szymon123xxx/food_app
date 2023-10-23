@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.foodapp.databinding.ScreenRecipesItemBinding
-import com.example.foodapp.domain.model.random_recepie.Recipe
+import com.example.foodapp.domain.model.random_recipe.Recipe
 
 class RecipesScreenAdapter(val listener: RecipeAdapterItemListener):
     RecyclerView.Adapter<RecipesScreenAdapter.ContentViewHolder>() {
@@ -26,7 +26,7 @@ class RecipesScreenAdapter(val listener: RecipeAdapterItemListener):
                     pricePerServing.text = recipe.pricePerServing.toString()
                     cookTime.text = recipe.readyInMinutes.toString()
                     image.load(recipe.image)
-                    root.setOnClickListener { listener.onItemClicked("1") }
+                    root.setOnClickListener { listener.onItemClicked(recipe.id.toString()) }
                 }
             }
         }

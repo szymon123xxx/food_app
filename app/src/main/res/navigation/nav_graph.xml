@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_homeScreen_to_detailsScreen"
             app:destination="@id/detailsScreen" />
+        <argument
+            android:name="recipeId"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/favouriteScreen"
@@ -23,6 +26,16 @@
         android:label="LoginScreen" />
     <fragment
         android:id="@+id/detailsScreen"
-        android:name="com.example.foodapp.presentation.DetailsScreen"
-        android:label="DetailsScreen" />
+        android:name="com.example.foodapp.presentation.details_screen.DetailsScreen"
+        android:label="DetailsScreen" >
+        <argument
+            android:name="recipeId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipesScreen"
+        android:name="com.example.foodapp.presentation.recipes_screen.RecipesScreen"
+        android:label="RecipesScreen"
+        tools:layout="@layout/screen_recipes">
+    </fragment>
 </navigation>

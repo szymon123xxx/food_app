@@ -1,5 +1,6 @@
 package com.example.foodapp.data.data_source.repository
 
+import com.example.foodapp.data.data_source.api.id_recipe_data_source.IdRecipeDataSource
 import com.example.foodapp.data.data_source.api.random_recipe_data_source.RandomRecipeDataSource
 import com.example.foodapp.data.data_source.endpoints.FoodApi
 import com.example.foodapp.domain.repository.FoodRepository
@@ -13,7 +14,15 @@ class FoodRepositoryImpl @Inject constructor(
         return foodApi.randomRecipeEndPoint(
             key = Constants.API_KEY,
             limitLicense = "true",
-            number = number
+            number = number,
+        )
+    }
+
+    override suspend fun getRecipeInformation(id: String): IdRecipeDataSource {
+        return foodApi.getRecipeInformationEndPoint(
+            id = id,
+            key = Constants.API_KEY,
+            includeNutrition = "true",
         )
     }
 }

@@ -8,8 +8,10 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.foodapp.databinding.ScreenRecipesBinding
 import com.example.foodapp.presentation.adapters.RecipesScreenAdapter
+import com.example.foodapp.presentation.home_screen.HomeScreenDirections
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -49,9 +51,9 @@ class RecipesScreen: Fragment(), RecipesScreenAdapter.RecipeAdapterItemListener 
         }
     }
 
-    private fun setupRecyclerView() {
-        binding.recyclerView.setHasFixedSize(true)
-        binding.recyclerView.adapter = contentAdapter
+    private fun setupRecyclerView() = with(binding.recyclerView) {
+        setHasFixedSize(true)
+        adapter = contentAdapter
     }
 
     override fun onDestroy() {
@@ -60,7 +62,8 @@ class RecipesScreen: Fragment(), RecipesScreenAdapter.RecipeAdapterItemListener 
     }
 
     override fun onItemClicked(recipeId: String) {
-        TODO("Not yet implemented")
+        findNavController().navigate(
+            HomeScreenDirections.actionHomeScreenToDetailsScreen(recipeId)
+        )
     }
-
 }

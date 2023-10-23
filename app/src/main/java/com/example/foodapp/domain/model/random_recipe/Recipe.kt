@@ -1,8 +1,9 @@
-package com.example.foodapp.domain.model.random_recepie
+package com.example.foodapp.domain.model.random_recipe
 
 import com.example.foodapp.data.data_source.api.random_recipe_data_source.RecipeDataSource
 
 data class Recipe(
+    val id: Int?,
     val readyInMinutes: Int?,
     val image: String?,
     val title: String?,
@@ -11,6 +12,7 @@ data class Recipe(
 
 fun RecipeDataSource.toRecipe(): Recipe {
     return Recipe(
+        id = id,
         readyInMinutes = readyInMinutes,
         image = image,
         title = title,
