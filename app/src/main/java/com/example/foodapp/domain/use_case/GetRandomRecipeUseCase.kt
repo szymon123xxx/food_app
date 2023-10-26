@@ -1,7 +1,7 @@
 package com.example.foodapp.domain.use_case
 
 import retrofit2.HttpException
-import com.example.foodapp.data.data_source.repository.FoodRepositoryImpl
+import com.example.foodapp.data.repository.FoodRepositoryImpl
 import com.example.foodapp.domain.model.random_recipe.RandomRecipe
 import com.example.foodapp.domain.model.random_recipe.toRandomRecipe
 import com.example.foodapp.utils.Constants.HTTP_ERROR

@@ -1,6 +1,6 @@
 package com.example.foodapp.domain.model.random_recipe
 
-import com.example.foodapp.data.data_source.api.random_recipe_data_source.RecipeDataSource
+import com.example.foodapp.data.data_source.random_recipe_data_source.RecipeDataSource
 
 data class Recipe(
     val id: Int?,

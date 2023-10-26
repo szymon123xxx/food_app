@@ -1,6 +1,6 @@
 package com.example.foodapp.domain.use_case
 
-import com.example.foodapp.data.data_source.repository.FoodRepositoryImpl
+import com.example.foodapp.data.repository.FoodRepositoryImpl
 import com.example.foodapp.domain.model.id_recipe.IdRecipe
 import com.example.foodapp.domain.model.id_recipe.toIdRecipe
 import com.example.foodapp.utils.Constants.HTTP_ERROR

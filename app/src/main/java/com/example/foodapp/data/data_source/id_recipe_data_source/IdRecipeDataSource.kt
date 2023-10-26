@@ -1,7 +1,7 @@
-package com.example.foodapp.data.data_source.api.id_recipe_data_source
+package com.example.foodapp.data.data_source.id_recipe_data_source
 
-import com.example.foodapp.data.data_source.api.random_recipe_data_source.AnalyzedInstructionDataSource
-import com.example.foodapp.data.data_source.api.random_recipe_data_source.ExtendedIngredientDataSource
+import com.example.foodapp.data.data_source.random_recipe_data_source.AnalyzedInstructionDataSource
+import com.example.foodapp.data.data_source.random_recipe_data_source.ExtendedIngredientDataSource
 import com.google.gson.annotations.SerializedName
 
 data class IdRecipeDataSource(

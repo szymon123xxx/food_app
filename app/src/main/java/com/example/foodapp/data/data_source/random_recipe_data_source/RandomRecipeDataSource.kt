@@ -1,4 +1,4 @@
-package com.example.foodapp.data.data_source.api.random_recipe_data_source
+package com.example.foodapp.data.data_source.random_recipe_data_source
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,7 +1,7 @@
 package com.example.foodapp.domain.repository
 
-import com.example.foodapp.data.data_source.api.id_recipe_data_source.IdRecipeDataSource
-import com.example.foodapp.data.data_source.api.random_recipe_data_source.RandomRecipeDataSource
+import com.example.foodapp.data.data_source.id_recipe_data_source.IdRecipeDataSource
+import com.example.foodapp.data.data_source.random_recipe_data_source.RandomRecipeDataSource
 import retrofit2.http.Query
 
 interface FoodRepository {

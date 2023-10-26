@@ -1,6 +1,6 @@
 package com.example.foodapp.domain.model.id_recipe
 
-import com.example.foodapp.data.data_source.api.id_recipe_data_source.WinePairingDataSource
+import com.example.foodapp.data.data_source.id_recipe_data_source.WinePairingDataSource
 
 data class WinePairing (
     val pairingText: String,
