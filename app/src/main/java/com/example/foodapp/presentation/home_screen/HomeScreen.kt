@@ -37,10 +37,10 @@ class HomeScreen: Fragment() {
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             when(position){
                 0 -> {
-                    tab.text = "Recipes"
+                    tab.text = RECIPES
                 }
                 1 -> {
-                    tab.text = "Favourite"
+                    tab.text = FAVOURITE
                 }
             }
         }.attach()
@@ -49,5 +49,10 @@ class HomeScreen: Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    companion object {
+        const val RECIPES = "Recipes"
+        const val FAVOURITE = "Favourite"
     }
 }

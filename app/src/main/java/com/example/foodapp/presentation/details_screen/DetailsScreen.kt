@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -37,19 +36,13 @@ class DetailsScreen: Fragment() {
         setUpTabs()
         with(viewModel) {
             getRecipeById(recipesScreenArgs.recipeId)
-            detailsScreenState.observe(viewLifecycleOwner) {
+            detailsScreenState.observe(viewLifecycleOwner) { data ->
                 with(binding) {
-                    if (it.isLoading) {
-                        progressBar.isVisible
-                        error.isGone
-                    } else if (it.error.isNotEmpty()) {
-                        progressBar.isGone
-                        error.isVisible
-                        error.text = it.error
-                    } else {
-                        error.isGone
-                        progressBar.isGone
-                        setContent(it)
+                    progressBar.isVisible = data.isLoading
+                    error.isVisible = data.error.isNotEmpty()
+                    error.text = data.error
+                    if (!data.isLoading && data.error.isEmpty()) {
+                        setContent(data)
                     }
                 }
             }
@@ -58,6 +51,7 @@ class DetailsScreen: Fragment() {
 
     private fun setContent(data: DetailsScreenState) = with(binding) {
         image.load(data.image)
+        title.text = data.title
     }
 
     private fun setUpTabs() {
@@ -67,13 +61,10 @@ class DetailsScreen: Fragment() {
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             when(position){
                 0 -> {
-                    tab.text = "Ingredients"
+                    tab.text = INGREDIENTS
                 }
                 1 -> {
-                    tab.text = "Preparation"
-                }
-                3 -> {
-                    tab.text = "Similar"
+                    tab.text = PREPARATION
                 }
             }
         }.attach()
@@ -82,5 +73,10 @@ class DetailsScreen: Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    companion object {
+        const val INGREDIENTS = "Ingredients"
+        const val PREPARATION = "Preparation"
     }
 }

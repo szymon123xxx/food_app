@@ -4,8 +4,6 @@ import retrofit2.HttpException
 import com.example.foodapp.data.repository.FoodRepositoryImpl
 import com.example.foodapp.domain.model.random_recipe.RandomRecipe
 import com.example.foodapp.domain.model.random_recipe.toRandomRecipe
-import com.example.foodapp.utils.Constants.HTTP_ERROR
-import com.example.foodapp.utils.Constants.IO_ERROR
 import com.example.foodapp.utils.Resource
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
@@ -30,5 +28,7 @@ class GetRandomRecipeUseCase @Inject constructor(
 
     companion object {
         private const val RECIPE_NUMBER = "2"
+        const val HTTP_ERROR = "Unexpected http error"
+        const val IO_ERROR = "Couldn't reach the server, check your internet connection!"
     }
 }

@@ -3,8 +3,6 @@ package com.example.foodapp.domain.use_case
 import com.example.foodapp.data.repository.FoodRepositoryImpl
 import com.example.foodapp.domain.model.id_recipe.IdRecipe
 import com.example.foodapp.domain.model.id_recipe.toIdRecipe
-import com.example.foodapp.utils.Constants.HTTP_ERROR
-import com.example.foodapp.utils.Constants.IO_ERROR
 import com.example.foodapp.utils.Resource
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
@@ -22,9 +20,9 @@ class GetRecipeByIdUseCase @Inject constructor(
                 foodRepositoryImpl.getRecipeInformation(id).toIdRecipe()
             emit(Resource.Success(idRecipe))
         } catch (e: HttpException) {
-            emit(Resource.Error(message = e.localizedMessage ?: HTTP_ERROR))
+            emit(Resource.Error(message = e.localizedMessage ?: GetRandomRecipeUseCase.HTTP_ERROR))
         } catch (e: IOException) {
-            emit(Resource.Error(IO_ERROR))
+            emit(Resource.Error(GetRandomRecipeUseCase.IO_ERROR))
         }
     }
 }

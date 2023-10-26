@@ -1,5 +1,6 @@
 package com.example.foodapp.presentation.recipes_screen
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -16,7 +17,7 @@ class RecipesScreenViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _state = MutableLiveData<RecipesScreenState>()
-    val state= _state
+    val state: LiveData<RecipesScreenState> = _state
 
     init {
         getRandomRecipe()

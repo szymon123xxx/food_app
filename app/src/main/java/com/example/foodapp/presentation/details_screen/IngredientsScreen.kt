@@ -1,4 +1,4 @@
-package com.example.foodapp.presentation.ingredients_screen
+package com.example.foodapp.presentation.details_screen
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.foodapp.databinding.ScreenIngredientsBinding
 import com.example.foodapp.presentation.adapters.IngredientsScreenAdapter
-import com.example.foodapp.presentation.details_screen.DetailsScreenViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

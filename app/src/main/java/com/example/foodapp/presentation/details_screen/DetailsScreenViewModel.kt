@@ -1,5 +1,6 @@
 package com.example.foodapp.presentation.details_screen
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -17,14 +18,13 @@ class DetailsScreenViewModel @Inject constructor(
 ): ViewModel() {
 
     private val _detailsScreenState = MutableLiveData<DetailsScreenState>()
-    val detailsScreenState= _detailsScreenState
+    val detailsScreenState: LiveData<DetailsScreenState> = _detailsScreenState
 
     private val _ingredientsScreenState = MutableLiveData<IngredientsScreenState>()
-    val ingredientsScreenState= _ingredientsScreenState
+    val ingredientsScreenState: LiveData<IngredientsScreenState> = _ingredientsScreenState
 
     private val _descriptionScreenState = MutableLiveData<DescriptionScreenState>()
-    val descriptionScreenState= _descriptionScreenState
-
+    val descriptionScreenState: LiveData<DescriptionScreenState> = _descriptionScreenState
 
     fun getRecipeById(id: String) {
         getRecipeByIdUseCase(id).onEach { result ->
